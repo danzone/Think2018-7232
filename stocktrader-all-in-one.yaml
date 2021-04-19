@@ -82,7 +82,7 @@ spec:
     app: loyalty-level
 ---
 #Configure the ingress
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Ingress
 metadata:
 # annotations:
@@ -99,7 +99,7 @@ spec:
 ---
 #
 #Deploy the pod
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: notification
@@ -170,7 +170,7 @@ spec:
 ---
 #
 #Deploy the pod
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: portfolio
@@ -248,7 +248,7 @@ spec:
 
 #
 #Deploy the pod
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: stock-quote
@@ -292,7 +292,7 @@ spec:
     app: stock-quote
 ---
 #Configure the ingress
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Ingress
 metadata:
 # annotations:
@@ -307,7 +307,7 @@ spec:
           serviceName: stock-quote-service
           servicePort: 9080
 #Deploy the pod
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: trader
@@ -320,7 +320,7 @@ spec:
     spec:
       containers:
       - name: trader
-        image: @RegistryHostAndRepo@/trader:latest
+        image: @registryHostAndRepo@/trader:latest
         ports:
           - containerPort: 9080
         imagePullPolicy: IfNotPresent
@@ -340,7 +340,7 @@ spec:
     app: trader
 ---
 #Configure the ingress
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Ingress
 metadata:
 # annotations:
